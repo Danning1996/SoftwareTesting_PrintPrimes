@@ -1,0 +1,37 @@
+package printPrimes;
+
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class PrintTest {
+	
+	 int MAXPRIMES;
+	 int curPrime; 
+     int numPrimes; 
+     boolean isPrime; 
+     int [] primes = new int [MAXPRIMES];
+     public Print print = new Print();
+     PrintStream console = null;   
+     ByteArrayOutputStream bytes = null;
+	@Before
+	public void setUp() throws Exception {
+		primes[0] = 2; 
+	    numPrimes = 1; 
+	    curPrime = 2; 
+	    bytes = new ByteArrayOutputStream();    // 分配空间
+        console = System.out;                   // 获取System.out 输出流的句柄
+        System.setOut(new PrintStream(bytes)); 
+	    
+	}
+	@Test
+	public void test() {
+		assertEquals("Prime: 2\r\nPrime: 3\r\nPrime: 5\r\n",bytes.toString());
+		//fail("Not yet implemented");
+	}
+
+}

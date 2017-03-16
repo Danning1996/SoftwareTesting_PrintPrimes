@@ -1,0 +1,29 @@
+package printPrimes;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class PrintTest {
+
+     public Print print;
+    
+	@Before
+	public void setUp() throws Exception {		
+	    print = new Print();
+        
+	}
+	@Test
+	public void test() throws IOException {
+		
+		String result = print.printPrimes(3);
+		String output = new String("Prime: 2\r\nPrime: 3\r\nPrime: 5\r\n");
+		
+		assertEquals(output,result);
+		//fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,61 @@
+package printPrimes;
+
+public class Print  
+{
+	
+
+	/******************************************************* 
+     * Finds and prints n prime integers 
+     * Jeff Offutt, Spring 2003 
+     ******************************************************/ 
+    public String printPrimes (int n) 
+    { 
+        int curPrime; // Value currently considered for primeness 
+        int numPrimes; // Number of primes found so far. 
+        boolean isPrime; // Is curPrime prime? 
+        int [] primes = new int [100]; // The list of prime numbers. 
+        
+        // Initialize 2 into the list of primes. 
+        primes [0] = 2; 
+        numPrimes = 1; 
+        curPrime = 2; 
+        while (numPrimes < n) 
+        { 
+            curPrime++; // next number to consider ... 
+            isPrime = true; 
+            for (int i = 0; i <= numPrimes-1; i++) 
+            { // for each previous prime. 
+                if (isDivisible(primes[i], curPrime)) 
+                { // Found a divisor, curPrime is not prime. 
+                    isPrime = false; 
+                    break; // out of loop through primes. 
+                } 
+            } 
+            if (isPrime) 
+            { // save it! 
+                primes[numPrimes] = curPrime; 
+                numPrimes++; 
+            } 
+        } // End while 
+        
+        // Print all the primes out. 
+        String result = null;
+        for (int i = 0; i <= numPrimes-1; i++) 
+        { 
+            result = "Prime: " + primes[i];           
+        }
+        System.out.println(result);
+        return result;  
+    } // end printPrimes
+
+	private static boolean isDivisible(int i, int curPrime) {
+		// TODO Auto-generated method stub
+		if(curPrime % i == 0){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
+}
